@@ -1,14 +1,22 @@
+const firebaseConfig = { /* Tus credenciales aquí */ };
+firebase.initializeApp(firebaseConfig);
 
-// Importa las funciones que necesites desde los SDKs
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+function register() {
+    const email = document.getElementById('email').value;
+    const pass = document.getElementById('password').value;
+    firebase.auth().createUserWithEmailAndPassword(email, pass)
+    .then(() => alert("Cuenta creada"))
+    .catch(err => alert(err.message));
+}
 
-// Tu configuración de Firebase (Copiado de la consola)
-const firebaseConfig = {
-  apiKey: "TU_API_KEY",
-  authDomain: "tu-proyecto.firebaseapp.com",
-  projectId: "tu-proyecto",
-  storageBucket: "tu-proyecto.appspot.com",
-  messagingSenderId: "ID_SENDER",
-  appId: "TU_APP_ID"
-};
+function publicar() {
+    const texto = document.getElementById('postContent').value;
+    // Guardar en Firestore
+    firebase.firestore().collection("posts").add({
+        contenido: texto,
+        fecha: new Date(),
+        usuario: firebase.auth().currentUser.email
+    });
+}
+
 
