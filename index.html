@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidad Mental</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Comunidad Abierta</h1>
+        <div id="auth-box">
+            <input type="email" id="email" placeholder="Correo">
+            <input type="password" id="password" placeholder="Contraseña">
+            <button onclick="login()">Ingresar</button>
+            <button onclick="register()">Registrarse</button>
+        </div>
+        <div id="feed" style="display:none;">
+            <textarea id="postContent" placeholder="Comparte cómo te sientes hoy..."></textarea>
+            <button onclick="publicar()">Publicar</button>
+            <div id="postsList"></div>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="app.js"></script>
+</body>
+      </html>
+      
