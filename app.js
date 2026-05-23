@@ -1,4 +1,4 @@
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Configuración real obtenida de tu consola de Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyBj1byGK044xGVB_UlfG6CsvuWud6v-Sc8",
   authDomain: "nofo-b02b6.firebaseapp.com",
@@ -9,13 +9,13 @@ const firebaseConfig = {
   measurementId: "G-C2MED93HEV"
 };
 
-// 2. Inicialización
+// Inicialización de Firebase
 firebase.initializeApp(firebaseConfig);
 
 const auth = firebase.auth();
 const db = firebase.firestore();
 
-// 3. Funciones de control
+// Funciones de control
 function register() {
     const email = document.getElementById('email').value;
     const pass = document.getElementById('password').value;
@@ -31,14 +31,13 @@ function login() {
     .then(() => {
         document.getElementById('auth-box').style.display = 'none';
         document.getElementById('feed').style.display = 'block';
-        cargarPosts(); // Llamamos a la función aquí al entrar
+        cargarPosts(); // Carga los posts al entrar
     })
     .catch(err => alert(err.message));
 }
 
 function publicar() {
     const texto = document.getElementById('postContent').value;
-    if (!texto.trim()) return; // No publicar vacío
     db.collection("posts").add({
         contenido: texto,
         fecha: new Date(),
@@ -46,23 +45,23 @@ function publicar() {
     })
     .then(() => {
         document.getElementById('postContent').value = '';
-        // No hace falta llamar a cargarPosts aquí, el onSnapshot lo hará solo
+        alert("Publicado");
     })
-    .catch(err => alert("Error al publicar: " + err.message));
+    .catch(err => alert("Error: " + err.message));
 }
 
 function cargarPosts() {
     db.collection("posts").orderBy("fecha", "desc").onSnapshot(snapshot => {
         const feed = document.getElementById('postsList');
-        feed.innerHTML = ''; 
+        feed.innerHTML = '';
         snapshot.forEach(doc => {
             const post = doc.data();
             feed.innerHTML += `
-                <div class="post" style="border-bottom:1px solid #ccc; margin:10px 0; padding:5px;">
+                <div class="post">
                     <p><strong>${post.usuario}</strong>: ${post.contenido}</p>
                 </div>
             `;
         });
     });
-      }
-          
+                         }
+
