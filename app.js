@@ -1,18 +1,13 @@
-/ 1. Aquí pegas tu configuración
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDYr2Zgk4njVPcR--P3vUUpgsr5e-uk6e0",
-  authDomain: "nodoo-29224.firebaseapp.com",
-  projectId: "nodoo-29224",
-  storageBucket: "nodoo-29224.firebasestorage.app",
-  messagingSenderId: "454908786832",
-  appId: "1:454908786832:web:2a1a514ab46293c90e4015",
-  measurementId: "G-2GKXQ097EZ"
+  apiKey: "AIzaSyBj1byGK044xGVB_UlfG6CsvuWud6v-Sc8",
+  authDomain: "nofo-b02b6.firebaseapp.com",
+  projectId: "nofo-b02b6",
+  storageBucket: "nofo-b02b6.firebasestorage.app",
+  messagingSenderId: "461621302989",
+  appId: "1:461621302989:web:fbe9298103f55d52937b84",
+  measurementId: "G-C2MED93HEV"
 };
-
-// 2. Aquí lo activas (esto es fundamental)
-firebase.initializeApp(firebaseConfig);
-
-// 3. Después de esto, ya puedes poner tus funciones de login, register, etc
 // Configuración (REEMPLAZA CON TUS DATOS)
 const firebaseConfig = {
     apiKey: "TU_API_KEY",
