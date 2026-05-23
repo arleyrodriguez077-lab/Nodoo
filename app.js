@@ -45,3 +45,18 @@ function publicar() {
         alert("Publicado");
     });
 }
+function cargarPosts() {
+    firebase.firestore().collection("posts").orderBy("fecha", "desc").onSnapshot(snapshot => {
+        const feed = document.getElementById('postsList');
+        feed.innerHTML = ''; // Limpiar lista antes de actualizar
+        snapshot.forEach(doc => {
+            const post = doc.data();
+            feed.innerHTML += `
+                <div class="post">
+                    <p><strong>${post.usuario}</strong>: ${post.contenido}</p>
+                </div>
+            `;
+        });
+    });
+}
+// Llama a esta función justo después de que el usuario haga login exitoso
