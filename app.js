@@ -1,4 +1,4 @@
-// 1. Configuración única (tus datos reales)
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyBj1byGK044xGVB_UlfG6CsvuWud6v-Sc8",
   authDomain: "nofo-b02b6.firebaseapp.com",
